@@ -1,1 +1,921 @@
+Завдання 1. A[0], A[2], A[4], ...
+Даний масив, що складається з цілих чисел. Нумерація елементів починається з 0. Напишіть програму, яка виведе елементи масиву, номери яких є парними (0, 2, 4...).
+int i;
+		  int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+		  for (i=1; i<100; i++) 
+			  if(array[i]%2==0){
+				  System.out.println(array[i]);
+		  }
+      
+Завдання 2. Вивести парні елементи
+Даний масив, що складається з цілих чисел. Напишіть програму, яка виводить ті елементи масиву, які є парними числами.
+int i;
+		  int[] array = {5, 3, 4, 2, 8, 7};
+		  for (i=1; i<100; i++) 
+			  if(array[i]%2==0){
+				  System.out.println(array[i]);
+		  }
+      
+Завдання 3. Кількість позитивних елементів
+Даний масив, що складається з цілих чисел. Напишіть програму, яка підраховує кількість позитивних чисел серед елементів масиву.
+int i;
+		  int array[] = {5, -3, -4, -2, 8, 7, 1, -9, 9};
+		  int k=0;
+		  for (i=0; i < array.length; i++) { 
+			  if(array[i]>0) 
+				  k++;  	
+			  }
+		  System.out.println(k);
+      
+Завдання 4. Кількість елементів, більших за попередній
+Даний масив, що складається з цілих чисел. Напишіть програму, яка підрахує кількість елементів масиву, більших за попередній (елемента з попереднім номером).
+int i;
+		  int array[] = {1, 2, 3, 4, 5, 6, 7};
+		  int k=0;
+		  for (i=0; i < array.length; i++) { 
+			  if(array[i] > array[0]) 
+				  k++;  	
+			  }
+		  System.out.println(k);
+      
+Завдання 5. Чи є два елементи з однаковими знаками
+Даний масив, що складається з цілих чисел. Напишіть програму, яка визначає, чи є у масиві пара сусідніх елементів із однаковими знаками.
+int i;
+		  boolean flag = false;
+		  int array[] = {1, 3, 4, -2, 1};
+		  for (i=0; i < 10000; i++) { 
+			  if (array[i + 1] * array[i] > 0) { 
+		            System.out.println("YES");
+		        }else if (flag == false) {
+		        	System.out.println("NO");
+		        }
+		  }
+      
+Завдання 6. Кількість елементів великих обох сусідів
+Даний масив, що складається з цілих чисел. Напишіть програму, яка в даному масиві визначить кількість елементів, у яких два сусідні і, 
+при цьому, обидва сусідні елементи менші від даного.
+import java.util.Scanner;
+public class Name {
+public static void main(String[] args) {
+   Scanner s = new Scanner(System.in);
+int c=0;
+int n = s.nextInt();
+int[] a= new int[10000];
+  for (int i = 0; i<n; i++)
+        a[i]=s.nextInt();
+    for (int i = 1; i<n-1; i++)
+        if (a[i]>a[i - 1] && a[i]>a[i + 1])
+            c++;
+    System.out.println(c);
+	}
+}
+
+Завдання 7. Переставити елементи у зворотному порядку
+Напишіть програму, яка переставляє елементи масиву у зворотному порядку без використання
+додаткового масиву. Програма повинна вважати масив, змінити порядок його елементів, потім
+вивести результат (просто вивести елементи масиву у зворотному порядку – недостатньо!)
+String[] a = { "9 ","8 ","7 ","6 ","5 "};
+		for (int i=0; i<a.length; i++){ 
+			System.out.print(a[i]);
+		}
+		System.out.println();
+		int n = a.length;
+		String temp;
+		for (int i = 0; i < n/2; i++) {
+		    temp = a[n-i-1];
+		    a[n-i-1] = a[i];
+		    a[i] = temp;
+		}
+		for (int i=0; i<a.length; i++){
+			System.out.print(a[i]);
+		}
+
+Завдання 8. Переставити сусідні елементи
+Напишіть програму, яка переставляє сусідні елементи масиву (1-й елемент поміняти з 2-м, 3-й з 4-
+м і т.д. Якщо елементів непарне число, то останній елемент залишається на своєму місці).
+public static void main(String[] args) throws NumberFormatException, IOException{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int k;
+	    k=Integer.parseInt(reader.readLine());
+	    int a[]=new int[10000];
+	    for(int i = 0; i < k; ++i)
+	    {
+	       a[i]=Integer.parseInt(reader.readLine());;
+	    }
+	    for(int i = 0; i < k; i += 2)
+	    {
+	        if((i + 1) == k)
+	        {
+	        	System.out.print(a[i]);
+	            break;
+	        }
+	        swap(a[i],a[i+1]);
+	        System.out.print(a[i] + " " +  a[i+1]);
+	        }	
+	    }
+      
+Завдання 9. Циклічне зрушення вправо
+Напишіть програму, яка циклічно зсуває елементи масиву вправо (наприклад, якщо елементи
+нумеруються, починаючи з нуля, то 0-й елемент стає 1-м, 1-й стає 2-м, ... останній стає 0-м, тобто
+масив {3, 5, 7, 9} перетворюється на масив {9, 3, 5, 7}).
+int tmp; 
+	  int n=5;
+	  int arr[]= {3, 4, 5, 6, 7};
+	  System.out.println(n);
+	    for(int i=0;i<n;i++){
+	    	System.out.print(arr[i] + " ");}
+	    tmp=arr[n-1];
+	    for(int i=n-1;i>0;i--)
+	    {
+	        arr[i]=arr[i-1];
+	    }
+	    arr[0]=tmp;
+	    System.out.println("\nNewArray:  ");
+	    for(int i=0;i<n;i++)
+	    {
+	    	System.out.print(arr[i] + " ");
+}
+
+Завдання 10. Максимум у масиві
+Вводиться масив, що з цілих чисел. Знайти найбільше у тому числі.
+int n=6;
+		  int arr[]= {3, 4, 12, 6, 7, 15};
+		  int max = 0;
+		    for (int i = 0; i < arr.length; i++) {    
+	            if (arr[i] > max) {
+	                    max = arr[i];
+	            }
+	            System.out.print(arr[i] + " ");
+		    }
+	            System.out.println("\nНайбільший елемент в масиві: " + max);
+
+Завдання 11. Кількість різних елементів у монотонному масиві
+Даний масив, що складається з цілих чисел. Відомо, що числа впорядковані через незменшення
+(тобто кожен наступний елемент не менший за попередній). Напишіть програму, яка визначить
+кількість різних чисел у цьому масиві.
+int[] array = {1, 1, 1, 1, 1};
+ 
+        int count = countNumberWithoutDuplicate(array);
+        System.out.println("Count numbers: " + count);
+    }
+ 
+    static int countNumberWithoutDuplicate(int[] array) {
+        int numbers = 0;
+        for (int i = 0; i < array.length; i++) {
+            int count = 0;
+            for (int j = 0; j < i; j++) {
+                if (array[j] == array[i]) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                numbers++;
+            }
+        }
+        return numbers;
+        
+Завдання 12. Шеренга
+Петя вперше прийшов на урок фізкультури у новій школі. Перед початком уроку учні
+вишиковуються за зростанням, у порядку незростання. Напишіть програму, яка визначить на яке
+місце в шерензі Пете потрібно встати, щоб не порушити традицію, якщо заздалегідь відоме
+зростання кожного учня і ці дані вже розташовані за незростанням (тобто кожне наступне число не
+більше попереднього). Якщо в класі є кілька учнів з таким самим зростанням, як у Петі, то
+програма має розташувати його після них.
+import java.util.Scanner;
+public class Name {
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int n=in.nextInt();
+    int x[] = new int[in.nextInt()];
+    for(int i=0; i<x.length; i++) {
+    for(i=0;i<x.length; i++) {
+      if(n > x[i]) {
+        System.out.println(i + 1);
+        return;
+      }
+    }
+    }
+    System.out.println(x.length+1);
+  }
+}
+
+Завдання 13. Подвійний переворот
+Дано послідовність натуральних чисел 1, 2, 3, ..., N (1 ≤ N ≤ 1000). Необхідно спочатку розташувати
+у зворотному порядку частину цієї послідовності від елемента з номером A до елемента з
+номером B, а потім від C до D (A < B; C < D; 1 ≤ A, B, C, D ≤ N).
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+		 Scanner s = new Scanner(System.in);
+		int n,a,b,c,d;
+		n = s.nextInt();
+		a = s.nextInt();
+		b = s.nextInt();
+		c = s.nextInt();
+		d = s.nextInt();
+		int[] x= new int[1001];
+		int[] y = new int[1001];
+		for(int i=1;i<=n;i++){
+            x[i]=i;y[i]=x[i];
+        }
+        for(int i=0;i<=b-a;i++)
+              {
+                  x[a+i]=y[b-i];
+              }
+        for(int i=1;i<=n;i++){
+           y[i]=x[i];}
+ 
+        for(int i=0;i<=d-c;i++)
+              {
+                  x[c+i]=y[d-i];
+              }
+        for(int i=1;i<=n;i++){
+        System.out.print(" " + x[i] + " ");
+        }
+
+Завдання 14. Суперсдвиг
+Дана послідовність з N (1 ≤ N ≤ 100000) цілих чисел та число K (|K| ≤ 100000). Зрушити всю
+послідовність (зсув - циклічний) на | K | елементів вправо, якщо K - позитивне і вліво, якщо негативне.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+		 Scanner s = new Scanner(System.in);
+		int i,n,k;
+		n = s.nextInt();
+		int[] a= new int[10000];
+		for(i=0;i<n;i++)
+			a[i]=s.nextInt();;
+			k=s.nextInt();;
+			if(k>0)k%=n;
+			else k=n-((-k)%n);
+
+			for(i=n-k;i<n;i++)
+				System.out.print(" " + a[i] + " ");
+
+			for(i=0;i<n-k;i++)
+				System.out.print(" " + a[i] + " ");
+
+Завдання 15. Кульки
+В одній комп'ютерній грі гравець виставляє у лінію кульки різних кольорів. Коли утворюється
+безперервний ланцюжок із трьох і більше кульок одного кольору, він видаляється з лінії. Всі
+кульки при цьому зсуваються одна до одної, і ситуація може повторитися.
+Напишіть програму, яка за даною ситуацією визначає, скільки кульок буде "знищено". Звичайно,
+безперервних ланцюжків з трьох і більше однокольорових куль у початковий момент може бути
+не більше одного.
+import java.util.Scanner;
+public class Name {
+public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+		int N;
+		N = s.nextInt();
+	int[] a= new int[10000];
+	for(int i = 0; i < N; i++) 
+		a[i]=s.nextInt();
+	for(int i = 0, count = 0; i < N-2; i++)
+    {   int L = i;
+        int R = i + 1;
+        while(a[L] == a[R])
+        {   int cnt = 2;
+            while((--L >= 0) && (a[L] == a[R]  )) cnt++;
+            while((++R <  N) && (a[R] == a[L+1])) cnt++;
+            if(cnt < 3) break;
+            count += cnt;          
+            System.out.println(cnt);
+            break;
+        }        
+    }
+    
+Завдання 16. Побічна діагональ
+Дано число n, n \(\leq\) 100 . Створіть масив n×n та заповніть його за таким правилом:
+- Числа на діагоналі, що йде з правого верхнього в лівий нижній кут, рівні 1;
+- Числа, що стоять вище цієї діагоналі, дорівнюють 0;
+- Числа, що стоять нижче цієї діагоналі, дорівнюють 2.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int[][] a = new int[4][4];
+		for(int i = 0; i < a.length; i++){
+	        for(int j = 0; j < a[i].length - i - 1; j++) 
+	            a[i][j] = 0;
+	        a[i][a.length - i - 1] = 1;             
+	        
+			for(int j = a[i].length - i; j < a[i].length; j++) 
+	        	a[i][j] = 2;
+			}
+		for(int i = 0; i < a.length; i++){
+	        for(int j = 0; j < a[i].length; j++) 
+	        	System.out.print(a[i][j] + " ");
+		}
+		System.out.println();
+
+Завдання 17. Чи симетрична матриця?
+Перевірте, чи є двовимірний масив симетричним щодо головної діагоналі. Головна діагональ - та,
+яка йде з лівого верхнього кута двовимірного масиву у правий нижній.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int[][] a = new int[n][n];
+		for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = in.nextInt();
+            }
+        }
+			for (int i=0; i<n; i++) {
+			for (int j=0; j<n; j++) {
+			if (a[i][j]!=a[j][i]) {
+				System.out.println(" NO");
+			break;
+			}
+			else{
+				System.out.println("yes");
+				break;
+			}			
+			}
+			}
+
+Завдання 18. Змагання
+Якщо перенумерувати спортсменів числами від 0 до n-1, а спроби кожного з них – від 0 до m-1, то
+на вхід програма отримує масив A[n][m], що складається з негативних цілих чисел. Програма
+повинна визначити максимальну суму чисел в одному рядку та вивести на екран цю суму та номер
+рядка, для якого досягається ця сума.
+import java.util.Random;
+public class Name {
+	public static void main(String[] args) {
+		int s=0; int ii = 0, res = 0;
+		int[][] a = new int[3][3];
+        Random rnd = new Random();
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+                a[i][j]=rnd.nextInt(5) + 1;      
+            }
+        }
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+            	s+=a[i][j];
+            }
+			if(s > res){
+                res = s;
+                ii = i;
+            }
+            }
+        System.out.println(res + " " + ii);
+
+Завдання 19. Змагання – 2
+У метанні молота змагається n спортсменів. Кожен із них зробив m кидків. Переможцем змагань
+оголошується той спортсмен, у якого максимальний найкращий результат у всіх кидках. Таким
+чином, програма повинна знайти значення максимального елемента в даному масиві, а також
+його індекси (тобто номер спортсмена та спроби).
+Вхідні дані
+Програма отримує на вхід два числа n і m, що є числом рядків та стовпців у масиві. Далі у вхідному
+потоці йде n рядків по m чисел, що є елементами масиву.
+Вихідні дані
+Програма виводить значення максимального елемента, потім номер рядка та номер стовпця, у
+якому він зустрічається. Якщо в масиві кілька максимальних елементів, потрібно вивести
+мінімальний номер рядка, в якому зустрічається такий елемент, а якщо в цьому рядку таких
+елементів кілька, то потрібно вивести мінімальний номер стовпця. Не забудьте, що всі рядки та
+стовпці нумеруються з 0.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int ii; int jj;
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int a[][] = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = in.nextInt();;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(a[i][j] + "  ");
+            }
+            System.out.println();
+        }
+        int max = a[1][1]; ii=1; jj=1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (max < a[i][j]) {
+                    max = a[i][j];
+                    ii=i; jj=j;
+                }
+            }
+        }
+        System.out.println("Максимальный елемент: " + max);
+         System.out.print("Номер та сповпець: ");
+			System.out.print(ii + " " + jj);
+
+Завдання 20. Змагання – 3
+У метанні молота змагається n спортсменів. Кожен із них зробив m кидків. Перемагає спортсмен, у
+якого максимальний найкращий кидок. Якщо таких кілька, то їх перемагає той, у якого найкраща
+сума результатів з усіх спроб. Якщо й таких кілька, переможцем вважається спортсмен із
+мінімальним номером. Визначте номер переможця змагань.
+Вхідні дані
+Програма отримує на вхід два числа n і m, що є числом рядків та стовпців у масиві. Далі у вхідному
+потоці йде n рядків по m чисел, що є елементами масиву.
+Вихідні дані
+Програма має вивести одне число – номер переможця змагань. Не забудьте, що рядки
+(спортсмени) нумеруються з 0.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int ii; int jj;
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int a[][] = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = in.nextInt();;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(a[i][j] + "  ");
+            }
+            System.out.println();
+        }
+        int max = a[1][1]; ii=1; jj=1; int min = a[1][1];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (max==1 && max < a[i][j]) {
+                    max = a[i][j];
+                    ii=i; jj=j;
+                    System.out.println("Максимальный елемент: " + max);
+                    System.out.println("Номер спортсмена з максимальним кидком: " + ii);                 
+                }               
+                else if (a[i][j] < min) {
+                    min = a[i][j];
+                    ii=i; jj= j; 
+                	System.out.println("Мінімальний: " + min);
+                	System.out.println("Номер спортсмена з мінімальним кидком: " + ii);
+                    }	                
+            }
+        }
+
+Завдання 21. Змагання – 4
+У метанні молота змагається n спортсменів. Кожен із них зробив m кидків. Переможець
+визначається за найкращим результатом. Визначте кількість учасників змагань, які розділили
+перше місце, тобто визначте кількість рядків у масиві, які містять значення, що дорівнює
+найбільшому.
+Вхідні дані
+Програма отримує на вхід два числа n і m, що є числом рядків та стовпців у масиві. Далі у вхідному
+потоці йде n рядків по m чисел, що є елементами масиву.
+Вихідні дані
+Програма має вивести одне число – кількість переможців змагання.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int ii; int jj;
+        int k = 0;
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int a[][] = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = in.nextInt();;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                
+            }
+            
+        }
+        int max = a[1][1]; ii=1; jj=1; 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (max < a[i][j]) {
+                    max = a[i][j];
+                    k = 0;
+                    ii=i; jj=j;
+                    k++;
+                    System.out.println(k);                                                                                                              
+            break;
+        }}}
+
+Завдання 22. Змагання – 5
+У метанні молота змагається n спортсменів. Кожен із них зробив m кидків. Переможець
+визначається за найкращим результатом. Визначте кількість учасників, а також учасників змагань,
+які розділили перше місце, тобто визначте кількість рядків у масиві, які містять значення, що
+дорівнює найбільшому.
+Вхідні дані
+Програма отримує на вхід два числа n і m, що є числом рядків та стовпців у масиві. Далі у вхідному
+потоці йде n рядків по m чисел, що є елементами масиву.
+Вихідні дані
+Спочатку програма виводить кількість спортсменів, які показали найкращий результат, потім їх
+номери в порядку зростання. Не забудьте, що рядки (спортсмени) нумеруються з 0.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int ii; int jj;
+        int k = 0;
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int a[][] = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = in.nextInt();;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                
+            }
+            
+        }
+        int max = a[1][1]; ii=1; jj=1; 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (max < a[i][j]) {
+                    max = a[i][j];
+                    k = 0;
+                    ii=i; jj=j;
+                    k++;
+                    System.out.println("Кількість спортсменів, які показали найкращий результат: " + k);  
+                    System.out.println("Номер спортсмена з максимальним кидком: " + ii);       
+            break;
+        }}}
+
+Завдання 23. Таблиця множення
+Дано два числа n і m. Створіть двовимірний масив A[n][m], заповніть таблицею множення A[i][j]=i*j
+і виведіть на екран. При цьому не можна використовувати вкладені цикли, все заповнення масиву
+має проводитись одним циклом.
+import java.util.Random;
+public class Name {
+	public static void main(String[] args) {
+		int[][] a = new int[3][3];
+        Random rnd = new Random();
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+                a[i][j]=rnd.nextInt(6) + 1;               
+            }
+        }
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+            	a[i][j] = i * j;
+                System.out.print(a[i] [j]+"  ");
+            }
+            System.out.println();
+        }     
+
+Завдання 24. Трикутник Паскаля
+Дано два числа n і m. Створіть двовимірний масив [n][m] і заповніть його за такими правилами:
+Числа, що стоять у рядку 0 або в стовпці 0 дорівнюють 1 (A[0][j]=1, A[i][0]=1). Для інших елементів
+масиву A[i][j]=A[i-1][j]+A[i][j-1], тобто кожен елемент дорівнює сумі двох елементів, що стоять
+ліворуч і зверху від нього.
+import java.util.Random;
+public class Name {
+	public static void main(String[] args) {
+		int[][] a = new int[3][3];
+        Random rnd = new Random();
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+                a[i][j]=rnd.nextInt(6) + 1;               
+            }
+        }
+        for (int i=0;i < a.length;i++) {
+            for (int j=0;j < a[i].length;j++) {
+            	a[0][0] = 1;
+            	a[0][1] = 1;
+            	a[0][2] = 1;
+            	a[1][0] = 1;
+            	a[2][0] = 1;
+            	a[1][1] = a[0][1]+a[1][0];
+            	a[2][1] = a[1][1]+a[2][0];
+            	a[1][2] = a[0][2]+a[1][1];
+            	a[2][2] = a[1][2]+a[2][1];
+                System.out.print(a[i] [j]+"  ");
+            }
+            System.out.println();
+        }    
+
+Завдання 25. Заповнення спіраллю
+Дано число n. Створіть масив A[2*n+1][2*n+1] і заповніть його по спіралі, починаючи з числа 0 у
+центральній клітині A[n+1][n+1]. Спіраль виходить нагору, далі закручується проти годинникової
+стрілки.
+import java.util.Scanner;
+public class Name {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //
+        int n = in.nextInt();
+        int s = 2 * n;
+        int a[][] = new int[s+1][s+1];
+        int c = (s + 1) * (s + 1) - 1;
+        a[n][n] = 0;
+        for (int k = 0; k <= n; ++k) {
+            for (int i = k; i < s - k; ++i) a[i][s - k] = c--;
+            for (int i = k; i < s - k; ++i) a[s - k][s - i] = c--;
+            for (int i = k; i < s - k; ++i) a[s - i][k] = c--;
+            for (int i = k; i < s - k; ++i) a[k][i] = c--;            
+        }
+        for (int i = 0; i <= s; ++i) {
+            for (int j = 0; j <= s; ++j)
+            	System.out.print(a[i][j] + " ");
+            System.out.println();
+        }
+
+Завдання 26. Заповнення змійкою
+Числа за модулем не перевищують 231-1.
+Дано числа n і m. Створіть масив A[n][m] та заповніть його змійкою
+import java.util.Scanner;
+public class Name {
+  public static void main(String[] args) {
+	    Scanner scan=new Scanner(System.in);
+        int [][]a;
+        
+        System.out.println("кількість рядків");
+    int n=scan.nextInt();
+    System.out.println("кількість стопчиків");
+    int m=scan.nextInt();
+    a=new int[n][m];
+    System.out.println("Масив");
+    for (int i=0;i<n;i++)
+        for (int j=0;j<m;j++)
+            a[i][j]=scan.nextInt();
+    int b[];
+    b=new int[n*m+3];
+    int t=0; int v=0; int e=0; int z=m; int k=n;
+    while (t!=m*n)
+    {
+     for (int j=v;j<z;j++)
+         {
+         b[t]=a[e][j];
+         
+         t++;
+         }
+     for (int i=e+1;i<k;i++)
+         {
+         b[t]=a[i][z-1];
+         t++;
+         }
+     z--;
+    for (int j=z-1;j>=v;j--)
+    {
+        b[t]=a[k-1][j];
+        t++;
+    }
+    k--;
+    e++;
+    for (int i=k-1;i>=e;i--)
+    {
+        b[t]=a[i][v];
+        t++;
+    }
+        v++;
+    } 
+for (int i=0;i<t;i++)
+            System.out.print(b[i]);
+ 
+    
+    }
+ 
+}
+
+Завдання 27. Заповнення діагоналями
+Дано числа n і m. Створіть масив A[n][m] та заповніть його
+import java.util.Scanner;
+public class Name {
+public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 int N = s.nextInt(); int M=s.nextInt();
+	 int a[][] = new int[N][M];
+	 //
+	 int i, j, row = 0, col = 0, n = 1;
+	    while(row <= (N - 1)){
+	        i = row;
+	        j = col;
+			while((i < N) && (j >= 0))
+	            a[i++][j--] = n++;
+	        
+	        if(col < (M - 1))
+	            ++col;
+	        else
+	            ++row;
+	    }	 
+	    for(i = 0; i < N; ++i){
+	        for(j = 0; j < M; ++j) {
+		   System.out.print(a[i][j]+" ");
+       }
+       System.out.println();
+	   }
+	   }
+	  }
+
+Завдання 28. Сапер
+Напишіть програму, яка відображатиме ігрове поле для гри "Сапер".
+Вхідні дані
+Дані числа N і M (цілі, позитивні, не перевищують 32) – кількість рядків і стовпців у полі відповідно,
+далі число W (ціле, невід'ємне, не більше 1000) – кількість мін на полі, далі слідує W пар чисел,
+координати міни на поле (перше число – рядок, друге число – стовпець).
+import java.util.Scanner;
+public class Name {
+public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 int n, m, bomb, count = 0;
+	 n=s.nextInt();
+	 m=s.nextInt();
+     bomb=s.nextInt();
+	 int A[][] = new int[n][m];
+	 //
+	 int x, y;
+	    for (int i = 0; i < n + 2; i++){ 
+	        for (int j = 0; j < m + 2; j++){ 
+	            A[i][j] = '0';
+	        }
+	    }
+	    for (int i = 0; i < bomb; i++){
+	        x=s.nextInt(); 
+	        y=s.nextInt();
+	        A[x][y] = '*';
+	    }
+	    for (int i = 1; i < n + 1; i++){
+	        for (int j = 1; j < m + 1; j++){ 
+	            if (A[i][j] != '*'){
+	                if (A[i-1][j] == '*') count++;
+	                if (A[i-1][j-1] == '*') count++;
+	                if (A[i-1][j+1] == '*') count++;
+	                if (A[i+1][j+1] == '*') count++;
+	                if (A[i+1][j-1] == '*') count++;
+	                if (A[i+1][j] == '*') count++;
+	                if (A[i][j-1] == '*') count++;
+	                if (A[i][j+1] == '*') count++;
+	                System.out.println(count);
+	                count = 0;
+	            }
+	            else System.out.println(A[i][j] + " ");
+	            if (j != m)
+		   System.out.print(" ");		   
+	        }
+       }
+
+Задача 29. Переворот
+Числа по модулю не превышают 231-1.
+Даний масив N × M. Потрібно повернути його по часовій стрелці на 90 градусів.
+public class Name {
+	public static int[][] convert(int[][] b) {
+		int[][] temp = new int[b[0].length][b.length];
+		for (int i = 0; i < b.length; i++) {
+			for (int j = 0; j < b[i].length; j++) {
+				temp[i][j]=b[b[i].length-j-1][i];
+			}
+		}
+		return temp;
+	}
+
+	public static void printArray(int[][] f) {
+		for (int i = 0; i < f.length; i++) {
+			for (int j = 0; j < f[i].length; j++) {
+				System.out.print(f[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void main(String args[]) {
+		int b[][] = { { 1, 2, 3 }, { 5, 6, 7 }, { 9, 10, 11 } };
+		printArray(convert(b));
+
+Завдання 30. Спіраль
+Числа за модулем не перевищують 231-1.
+Потрібно заповнити масив розміру N × N одиничками по спіралі
+import java.util.Scanner;
+public class Name {
+public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 int n=s.nextInt();
+	 int a[][] = new int[n][n];
+	    for(int i=0; i<n; i++){
+	        a[0][i]=1;
+	        a[n-1][i]=1;
+	        a[i][n-1]=1;
+	    }
+	    int h=n-2, d=n-2;
+	    int count=n-1, cour=0; 
+	        for(int i=0; i<h; i++){
+	            a[count-i][cour]=1;
+	        }
+	        count-=h-1;
+	        h-=2;
+	        if(h<=0)	            
+	        for(int i=0; i<d; i++){
+	            a[count][cour+i]=1;
+	        }
+	        cour+=d-1;
+	        d-=2;
+	        if(d<=0)	            
+	            for(int i=0; i<h; i++){
+	            a[count+i][cour]=1;
+	        }
+	        count+=h-1;
+	        h-=2;
+	        if(h<=0)	            
+	        for(int i=0; i<d; i++){
+	            a[count][cour-i]=1;
+	        }
+	        cour-=d-1;
+	        d-=2;
+	        if(d<=0)	    
+	    a[n/2][n/2]=0;
+	    for(int i=0; i<n; i++){
+	        for(int j=0; j<n; j++){	   
+		   System.out.print(a[i][j] + "");		   
+	        }
+	        System.out.println();
+       }
+       
+Завдання 31. Юліанський календар
+За заданим числом n від 1 до 365 визначте, яке число якого місяця припадає день невисокосного року з номером n.
+import java.util.Scanner;
+public class Name {
+	public static void main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		int months[] = { 31,28,31,30,31,30,31,31,30,31,30,31 } ;
+		int day;
+		System.out.println("Ведіть номер дня в році (від 1 до 365) : ");
+		day = in.nextInt();;
+		for (int i = 0; i < 12; i++){
+		day -= months[i];
+		if (day <= 0){
+		day += months[i];
+		System.out.println("Число місяца = " + day);
+		System.out.print("Номер місяца = " + (i + 1));
+		break;}}
+
+Завдання 32. Післязавтра
+За заданою датою потрібно визначити, яке буде післязавтра.
+Нагадаємо, що рік є високосним, якщо його номер кратний 4, але не кратний 100, а також якщо він кратний 400.
+import java.util.Scanner;
+public class Name {
+	public static void main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		int d = in.nextInt();
+	    int m = in.nextInt();
+	    int y = in.nextInt();
+	    boolean x = false;
+	    d = d + 2;
+	    if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+	        x = true;
+	    }
+	    if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10) {
+	        if (d > 31) {
+	            d = d % 31;
+	            m++;
+	        }
+	    } else if (m == 2) {
+	        if (x) {
+	            if (d > 29) {
+	                d = d % 29;
+	                m++;
+	            }
+	        } else {
+	            if (d > 28) {
+	                d = d % 28;
+	                m++;
+	            }
+	        }
+	    } else if (m == 12) {
+	        if (d > 31) {
+	            d = d % 31;
+	            m = 1;
+	            y++;
+	        }
+	    } else {
+	        if (d > 30) {
+	            d = d % 30;
+	            m++;
+	        }
+	    }
+	    System.out.println(d + " " + m + " " + y);
+
+Завдання 33. Кількість днів від початку ери
+Потрібно порахувати кількість днів від початку ери до цього дня включно. Початком ери
+вважається перше січня першого року.
+Вхідні дані
+У єдиному рядку вхідного файлу є дата у форматі ДДММРРР.
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Name {
+  public static void main(String[] args) {
+	  SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
+	    String inputString1 = "01 01 0001";
+	    String inputString2 = "02 01 0001";
+	    try{
+	      Date oldDate = myFormat.parse(inputString1);
+	      Date newDate = myFormat.parse(inputString2);
+	      int diffInDays = (int)( (newDate.getTime() - oldDate.getTime())
+	                 / (1000 * 60 * 60 * 24) );
+	      System.out.println("Кількість днів: " + diffInDays);
+	    }catch(Exception ex){
+	       System.out.println(ex);
+	    }
+
+
 
